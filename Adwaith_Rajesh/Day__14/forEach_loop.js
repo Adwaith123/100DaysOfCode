@@ -1,6 +1,8 @@
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+// ---------------------For_of_Loop-----------------
+
 //for (const movement of movements)
 //  Modified the above loop to find the current index
 
