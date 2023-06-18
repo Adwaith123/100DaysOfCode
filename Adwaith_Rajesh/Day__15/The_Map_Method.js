@@ -44,3 +44,15 @@ console.log(movementsDescription);
  But Here the whole thing is returned as array.-------------
 
  */
+
+ //Sorttening a username 
+
+ const name = 'Adwaith Panukunnel Rajesh';
+
+const username = name
+  .toLowerCase()
+  .split(' ')
+  .map(function (name) {
+    return name[0];
+  })
+  .join(''); //apr
