@@ -62,7 +62,7 @@ btnScrollTo.addEventListener('click', function (e) {
     s1coords.top + window.pageYOffset
   );
 
-  // Old way of scrolling
+  // Old way of scrolling through pages
 
   window.scrollTo({
     left: s1coords.left + window.pageXOffset,
