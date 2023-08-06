@@ -46,31 +46,6 @@ btnScrollTo.addEventListener('click', function (e) {
   const s1coords = section1.getBoundingClientRect();
   console.log(s1coords);
 
-  // console.log(e.target.getBoundingClientRect());
-
-  // console.log('Current Scroll (x/y)', window.pageXOffset, pageYOffset); //Current Scroll (x/y) 0 270.9333190917969
-
-  console.log(
-    'height/width viewport',
-    document.documentElement.clientHeight,
-    document.documentElement.clientWidth
-  );
-
-  // //Scrolling
-
-  // Old way of scrolling
-
-  /*
-  window.scrollTo(
-    s1coords.left + window.pageXOffset, // play around with it to understand
-    s1coords.top + window.pageYOffset
-  );
-
-  */
-
-  //
-  // To make scrolling smooth passing in an object rather than an argument
-
   window.scrollTo({
     left: s1coords.left + window.pageXOffset,
     top: s1coords.top + window.pageYOffset,
@@ -80,3 +55,38 @@ btnScrollTo.addEventListener('click', function (e) {
   //modern way of smooth scrolling
   //section1.scrollIntoView({ behavior: 'smooth' });
 });
+
+const h1 = document.querySelector('h1');
+
+/*
+// Behaves like a hover
+
+// Modern way
+
+h1.addEventListener('mouseenter', function (e) {
+  alert('addEventListener: Great! you are reading the heading :D');
+}); // One Advantage :: allows multiple
+
+//Old way
+
+h1.onmouseenter = function (e) {
+  alert('addEventListener: Great! you are reading the heading :D');
+};
+
+*/
+
+const alertH1 = function (e) {
+  alert('addEventListener: Great! you are reading the heading :D');
+
+  //h1.removeEventListener('mouseenter', alertH1); // Removing an event lsitener
+};
+
+h1.addEventListener('mouseenter', alertH1);
+
+//Another way to remove eventListener
+
+setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
+
+//Adding mouse click event to html document
+
+/* <h1 onclick="alert('HTML alert')"></h1> */
