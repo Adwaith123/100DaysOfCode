@@ -34,7 +34,7 @@ Human.hey = function () {
 };
 
 Human.hey();
-//jonas.hey(); // Hey is not in the prototype of jonas object
+//babu.hey(); // if we created babu object , Hey is not in the prototype of jonas object
 
 // -----------For class
 
