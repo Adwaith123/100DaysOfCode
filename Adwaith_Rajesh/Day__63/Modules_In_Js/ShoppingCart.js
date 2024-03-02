@@ -1,27 +1,26 @@
-// Exporting Module
+//Exporing modules
 
 console.log('Exporting Module');
 
-const shippingCost = 10;
+export const shippingCost = 10;
 export const cart = [];
 
+// Note: All the variable inside this modules is scoped for itself and it is private for this module itself
+
 export const addToCart = function (product, quantity) {
-  //   cart.push({ product: product, quantity: quantity });
   cart.push({ product, quantity });
   console.log(`${quantity} ${product} added to cart`);
 };
 
-// exporting multiple things using name dexports
-
 const totalPrice = 237;
 const totalQuantity = 23;
 
-export { totalPrice, totalQuantity as tq };
+export { totalPrice, totalQuantity };
+//--export { totalPrice, totalQuantity as tq }; :: Another way of changing name
 
-//Default exports -- exporting only a single item
+// :: ---Default Export-----
 
 export default function (product, quantity) {
-  //   cart.push({ product: product, quantity: quantity });
   cart.push({ product, quantity });
   console.log(`${quantity} ${product} added to cart`);
 }

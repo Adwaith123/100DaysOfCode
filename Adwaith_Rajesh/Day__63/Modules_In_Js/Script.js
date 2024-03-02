@@ -1,41 +1,74 @@
-// Importing Module
-//Changing names of the imported varibale totalPrice as price
+//Lecture ---273 Exporting and Importing in ES6 Modules
+
+//Importing modules
+
+/*------>>>>>>>>>-----------Section 1------->>>>>>>>>----------------
+
+import { addToCart, totalPrice, totalQuantity } from './shoppingCart.js'; // Without extension will also work
+
+--------Changing the name of imports--------
+import { totalPrice as price , totalQuantity as quantity } from './shoppingCart.js';
+   
+
+    console.log('Importing Module');
+    addToCart('bread', 5);
+    console.log(totalPrice, totalQuantity);
+
+     ------>>>>>>>>>------Section 1------->>>>>>>>>---------
+*/
+
+//  -------Importing everything from the exported module---------
+
+/*----------------Section 2------------------
+
+
+// ----- Module is just like a public API---
+
+import * as shoppingCart from './shoppingCart.js';
 
 console.log('Importing Module');
-/*
-import { addToCart, totalPrice as price, tq } from './shoppingCart.js';
 
-console.log(price, tq);
+shoppingCart.addToCart('coco', 10);
+console.log(shoppingCart.shippingCost);
 
-addToCart('bread', 5);
+-------->>>>>>>>>------Section 2----------->>>>>>>>>-------------*/
 
+//Note :: Default Export --> It is used when we export only one thing from a module
+
+/*----->>>>>-----------Section3--------->>>>>>---------
+
+//-----------Importing default export-------------
+
+import add from './shoppingCart.js'; // Don't need curly braces
+add('Pizza', 2);
+
+//----Avoid named export and default export together like given example---
+
+ *** import add , { addToCart, totalPrice, totalQuantity } from './shoppingCart.js'***
+
+-------->>>>>>>>>>>>>>--------Section3-------->>>>>>>>>>----------
 */
 
-//--------------importing all the values-------------
+// Note : imports are live connection to exports
 
 /*
-import * as ShoppingCart from './shoppingCart.js';
-//module exports kindly act as a public api
+-->>>>>>>>>>>>>>--------Section4-------->>>>>>>>>>--------
 
-ShoppingCart.addToCart('bread', 5);
-console.log(ShoppingCart.totalPrice);
+---An example to showcase the live conection between export and import
 
+import add,{cart} from './shoppingCart.js';
+add('pizza',2);
+add('bread',4);
+add('apples',5);
+
+console.log(cart); //--Output : (3) [{…}, {…}, {…}]
+
+-->>>>>>>>>>>>>>--------Section4-------->>>>>>>>>>--------
 */
-/*---------------------------------------------
 
-1.Importing modules are typically hoisted to the top..
-2.Here modules dosent require 'strict mode' , By default it operates on it.
-3.Here varibles declared inside a module are scoped in that module itself.(like private variables for a single module)
---------------------------------------------*/
-//--- import add, { totalPrice as price, tq } from './shoppingCart.js';
-import add, { cart } from './shoppingCart.js'; // we should not mix default exports with other named exports in real world
-// importing default values
-// console.log(price, tq);
-add('pizzas', 2);
-add('peas', 2);
-add('apples', 2);
-add('oranges', 2);
+import add, { cart } from './shoppingCart.js';
+add('pizza', 2);
+add('bread', 4);
+add('apples', 5);
 
 console.log(cart);
-
-//Note : import are not copies of exports , its a live connection between them , like a a single file , they points to the same location in memory in case of an object or an array
